@@ -25,8 +25,8 @@ dataPhotos.onreadystatechange = function() {
 
             productList.appendChild(productListLenses)
 
-            productImageUrl.setAttribute('src', i.imageUrl)
-            listContainer.setAttribute('href', `details.html?id=${i.id}`)
+            productImageUrl.setAttribute('src',  dataResults[i].imageUrl)
+            listContainer.setAttribute('href', `details.html?id=${ dataResults[i].id}`)
             
           
             productName.innerHTML = dataResults[i].name

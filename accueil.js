@@ -43,7 +43,7 @@ const displayListCameras = () => {
     const listCameras = loadMockData()
     const listContainer = document.getElementById('container')
 
-    for (i = 0; i < listCameras.length ; i++) {
+    for (let i in listCameras) {
 
         const camerasContainerElement = document.createElement("a")
         listContainer.appendChild(camerasContainerElement)
@@ -63,8 +63,8 @@ const displayListCameras = () => {
         const camerasPrice = document.createElement("p")
         camerasContainerElement.appendChild(camerasPrice)
 
-        camerasContainerElement.setAttribute("href", 'details.html?id=${i.id}')
-        camerasImage.setAttribute("src", i.imageUrl)
+        camerasContainerElement.setAttribute('href', `details.html?id=${listCameras[i].id}`)
+        camerasImage.setAttribute("src", listCameras[i].imageUrl)
 
         camerasName.innerHTML = listCameras[i].name
         camerasImage.innerHTML = listCameras[i].imageUrl
@@ -74,3 +74,4 @@ const displayListCameras = () => {
 }
 
 displayListCameras()
+
