@@ -1,4 +1,4 @@
-const mockDataDetail_1 = {
+const mockDataDetail = [{
     id : "_id_1",
     name : "Zurss 50S",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/718sJMJwrhL._AC_SL1500_.jpg",
@@ -7,9 +7,8 @@ const mockDataDetail_1 = {
     options : [
         "blue",
         "rouge"
-    ]};
-
-const mockDataDetail_2 = {
+    ]},
+{
     id : "_id_2",
     name : "Hirsch 400DTS",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/71f0odyTK9L._AC_SL1300_.jpg",
@@ -19,8 +18,8 @@ const mockDataDetail_2 = {
         "blue",
         "rouge"
     ]
-}; 
-const mockDataDetail_3 = {
+}, 
+{
     id : "_id_3",
     name : "Franck JS 105",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/41E%2BHkyJTfL._AC_.jpg",
@@ -29,8 +28,8 @@ const mockDataDetail_3 = {
     options : [
         "blue",
         "rouge"
-    ]};
-const mockDataDetail_4 = {
+    ]},
+{
     id : "_id_4",
     name : "Kuros TTS",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/71-TflfsYEL._AC_SL1500_.jpg",
@@ -39,8 +38,8 @@ const mockDataDetail_4 = {
     options : [
         "blue",
         "rouge"
-    ]};
- const mockDataDetail_5 = {
+    ]},
+{
     id : "_id_5",
         name : "Katatone",
         imageUrl : "https://images-na.ssl-images-amazon.com/images/I/619Qes9U8aL._AC_SL1000_.jpg",
@@ -49,12 +48,48 @@ const mockDataDetail_4 = {
     options : [
         "blue",
         "rouge"
-    ]};
+    ]}]
 
-    console.log(mockDataDetail_5)
+console.log(mockDataDetail)
 
+const loadDetail = () => {
+    return mockDataDetail
+}
 
+const displayListDetail = () => {
+    const listDetail = loadDetail()
+    const containerListElement = document.getElementById("detail")
 
+    for (let i in listDetail){
+        const containerListDetail = document.createElement("div")
+        containerListElement.appendChild(containerListDetail)
+
+        const detailName = document.createElement("h2")
+        containerListDetail.appendChild(detailName)
+
+        const detailImageUrl = document.createElement("img")
+        containerListDetail.appendChild(detailImageUrl)
+
+        detailImageUrl.setAttribute("src", listDetail[i].imageUrl)
+
+        const detailDescription = document.createElement("p")
+        containerListDetail.appendChild(detailDescription)
+
+        const detailPrice = document.createElement("p")
+        containerListDetail.appendChild(detailPrice)
+
+        const detailOption = document.createElement("p")
+        containerListDetail.appendChild(detailOption)
+
+        detailName.innerHTML = listDetail[i].name
+        detailImageUrl.innerHTML = listDetail[i].imageUrl
+        detailDescription.innerHTML = listDetail[i].description
+        detailPrice.innerHTML = listDetail[i].price + " € "
+        detailOption.innerHTML = listDetail[i].options
+    }
+}
+
+displayListDetail()
 
     
 

@@ -47,6 +47,7 @@ const displayListCameras = () => {
 
         const camerasContainerElement = document.createElement("a")
         listContainer.appendChild(camerasContainerElement)
+        console.log(camerasContainerElement)
         
         const camerasName = document.createElement("h2")
         camerasContainerElement.appendChild(camerasName)
@@ -54,14 +55,17 @@ const displayListCameras = () => {
 
         const camerasImage = document.createElement("img")
         camerasContainerElement.appendChild(camerasImage)
+        
+        const camerasListDescription = document.createElement('ul')
+        camerasContainerElement.appendChild(camerasListDescription)
 
 
-        const camerasDescription = document.createElement("p")
-        camerasContainerElement.appendChild(camerasDescription)
+        const camerasDescription = document.createElement("li")
+        camerasListDescription.appendChild(camerasDescription)
 
         
-        const camerasPrice = document.createElement("p")
-        camerasContainerElement.appendChild(camerasPrice)
+        const camerasPrice = document.createElement("li")
+        camerasListDescription.appendChild(camerasPrice)
 
         camerasContainerElement.setAttribute('href', `details.html?id=${listCameras[i].id}`)
         camerasImage.setAttribute("src", listCameras[i].imageUrl)
@@ -75,3 +79,5 @@ const displayListCameras = () => {
 
 displayListCameras()
 
+
+    
