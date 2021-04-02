@@ -40,7 +40,7 @@ console.log(mockDataCamera)
 const loadMockData = () => {
     return mockDataCamera
 }
-
+//Affichage dans le HTML de la fonction retournant les objets
 const displayListCameras = () => {
     const listCameras = loadMockData()
     const listContainer = document.getElementById('container')

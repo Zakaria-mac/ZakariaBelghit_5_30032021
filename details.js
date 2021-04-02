@@ -1,3 +1,5 @@
+//Creation d'un tableau mockDataDetail en prenant les mêmes objets que l'API
+
 const mockDataDetail = [{
     id : "_id_1",
     name : "Zurss 50S",
