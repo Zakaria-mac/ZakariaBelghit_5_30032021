@@ -72,3 +72,33 @@ console.log(queryString_url_id);
 const idChosenProduct = mockDataDetail.find(element => element.id === id)
 console.log(idChosenProduct)
 
+
+const containerListDetail = document.getElementById('detail')
+console.log(containerListDetail )
+
+const detailMainContainer = document.createElement("div")
+containerListDetail.appendChild(detailMainContainer)
+
+const detailName = document.createElement("h2")
+detailMainContainer.appendChild(detailName)
+
+const detailImageUrl = document.createElement("img")
+detailMainContainer.appendChild(detailImageUrl)
+
+detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
+
+const detailDescription = document.createElement("p")
+detailMainContainer.appendChild(detailDescription)
+
+const detailPrice = document.createElement("p")
+detailMainContainer.appendChild(detailPrice)
+
+const detailOption = document.createElement("p")
+detailMainContainer.appendChild(detailOption)
+
+detailName.innerHTML = idChosenProduct.name
+detailImageUrl.innerHTML = idChosenProduct.imageUrl
+detailDescription.innerHTML = idChosenProduct.description
+detailPrice.innerHTML = idChosenProduct.price/100 + " € "
+detailOption.innerHTML = idChosenProduct.options
+
