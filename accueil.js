@@ -1,3 +1,4 @@
+//Creation d'un tableau mockDataDetail en prenant les mêmes objets que l'API
 const mockDataCamera = [
     {
         id : "_id_1",
