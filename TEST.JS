@@ -43,3 +43,46 @@ dataPhotos.onreadystatechange = function() {
 }
 dataPhotos.open('GET', 'http://localhost:3000/api/cameras', true)
 dataPhotos.send()
+
+
+console.log(mockDataDetail)
+
+const loadDetail = () => {
+    return mockDataDetail
+}
+
+const displayListDetail = () => {
+    const listDetail = loadDetail()
+    const containerListElement = document.getElementById("detail")
+
+    for (let i in listDetail){
+        const containerListDetail = document.createElement("div")
+        containerListElement.appendChild(containerListDetail)
+
+        const detailName = document.createElement("h2")
+        containerListDetail.appendChild(detailName)
+
+        const detailImageUrl = document.createElement("img")
+        containerListDetail.appendChild(detailImageUrl)
+
+        detailImageUrl.setAttribute("src", listDetail[i].imageUrl)
+
+        const detailDescription = document.createElement("p")
+        containerListDetail.appendChild(detailDescription)
+
+        const detailPrice = document.createElement("p")
+        containerListDetail.appendChild(detailPrice)
+
+        const detailOption = document.createElement("p")
+        containerListDetail.appendChild(detailOption)
+
+        detailName.innerHTML = listDetail[i].name
+        detailImageUrl.innerHTML = listDetail[i].imageUrl
+        detailDescription.innerHTML = listDetail[i].description
+        detailPrice.innerHTML = listDetail[i].price + " € "
+        detailOption.innerHTML = listDetail[i].options
+    }
+}
+
+
+    

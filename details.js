@@ -49,51 +49,26 @@ const mockDataDetail = [{
         "blue",
         "rouge"
     ]}]
-
 console.log(mockDataDetail)
+ 
 
-const loadDetail = () => {
-    return mockDataDetail
-}
+/* Récupération de la chaine de requête dans l'URL
+ * Objectif : cliquer sur un produit du site et être directement renvoyé  à la page détail
+*/
 
-const displayListDetail = () => {
-    const listDetail = loadDetail()
-    const containerListElement = document.getElementById("detail")
-
-    for (let i in listDetail){
-        const containerListDetail = document.createElement("div")
-        containerListElement.appendChild(containerListDetail)
-
-        const detailName = document.createElement("h2")
-        containerListDetail.appendChild(detailName)
-
-        const detailImageUrl = document.createElement("img")
-        containerListDetail.appendChild(detailImageUrl)
-
-        detailImageUrl.setAttribute("src", listDetail[i].imageUrl)
-
-        const detailDescription = document.createElement("p")
-        containerListDetail.appendChild(detailDescription)
-
-        const detailPrice = document.createElement("p")
-        containerListDetail.appendChild(detailPrice)
-
-        const detailOption = document.createElement("p")
-        containerListDetail.appendChild(detailOption)
-
-        detailName.innerHTML = listDetail[i].name
-        detailImageUrl.innerHTML = listDetail[i].imageUrl
-        detailDescription.innerHTML = listDetail[i].description
-        detailPrice.innerHTML = listDetail[i].price + " € "
-        detailOption.innerHTML = listDetail[i].options
-    }
-}
-
-displayListDetail()
-
-    
+const queryString_url_id = window.location.search;
+console.log(queryString_url_id);
 
 
+// Récupération de l'iD, sans le "?"//
 
+ const urlSearchParams = new URLSearchParams(queryString_url_id)
+ console.log(urlSearchParams)
 
-    
+ const id = urlSearchParams.get("id")
+ console.log(id)
+
+ // Récupération grâce à l'id du produit dans détail.html //
+const idChosenProduct = mockDataDetail.find(element => element.id === id)
+console.log(idChosenProduct)
+

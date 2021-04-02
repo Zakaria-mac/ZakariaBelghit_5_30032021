@@ -35,6 +35,8 @@ const mockDataCamera = [
         price : "59900"
     } 
 ]
+console.log(mockDataCamera)
+
 const loadMockData = () => {
     return mockDataCamera
 }
@@ -79,5 +81,3 @@ const displayListCameras = () => {
 
 displayListCameras()
 
-
-    
