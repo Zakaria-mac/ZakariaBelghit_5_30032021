@@ -73,9 +73,9 @@ const displayListCameras = () => {
         camerasContainerElement.setAttribute('href', `details.html?id=${listCameras[i].id}`)
         camerasImage.setAttribute("src", listCameras[i].imageUrl)
 
-        camerasName.innerHTML = listCameras[i].name
-        camerasImage.innerHTML = listCameras[i].imageUrl
-        camerasPrice.innerHTML = listCameras[i].price + " € "
+        camerasName.innerHTML = listCameras[i].name 
+        camerasImage.innerHTML = listCameras[i].imageUrl 
+        camerasPrice.innerHTML = listCameras[i].price/100 + " € "
         camerasDescription.innerHTML = listCameras[i].description
     }
 }

@@ -43,10 +43,10 @@ const mockDataDetail = [{
     ]},
 {
     id : "_id_5",
-        name : "Katatone",
-        imageUrl : "https://images-na.ssl-images-amazon.com/images/I/619Qes9U8aL._AC_SL1000_.jpg",
-        description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        price : "59900",
+    name : "Katatone",
+    imageUrl : "https://images-na.ssl-images-amazon.com/images/I/619Qes9U8aL._AC_SL1000_.jpg",
+    description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price : "59900",
     options : [
         "blue",
         "rouge"
@@ -98,9 +98,15 @@ detailMainContainer.appendChild(detailPrice)
 const detailOption = document.createElement("p")
 detailMainContainer.appendChild(detailOption)
 
-detailName.innerHTML = idChosenProduct.name
+detailName.innerHTML = " Nom : " + idChosenProduct.name
 detailImageUrl.innerHTML = idChosenProduct.imageUrl
-detailDescription.innerHTML = idChosenProduct.description
-detailPrice.innerHTML = idChosenProduct.price/100 + " € "
-detailOption.innerHTML = idChosenProduct.options
+detailDescription.innerHTML = " Description : " + idChosenProduct.description
+detailPrice.innerHTML = " Prix : " + idChosenProduct.price/100 + " € "
+
+//récupération id formulaire pour choix option
+
+idOption = document.getElementById("options")
+idOption.addEventListener('change', function() {
+    console.log('value => ' +this.value);
+})
 
