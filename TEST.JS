@@ -86,3 +86,14 @@ const displayListDetail = () => {
 
 
     
+
+let selectedOption = document.getElementById("select"),
+arr = mockDataDetail.optionsList["bleu", "rouge"];
+
+for (let i = 0; i < arr.length; i++) {
+    
+    let option = document.createElement("option"),
+    txt = document.createTextNode(arr[i]);
+    option.appendChild(txt);
+    selectedOption.insertBefore(option,selectedOption.lastChild);
+}
