@@ -6,45 +6,59 @@ const mockDataDetail = [{
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/718sJMJwrhL._AC_SL1500_.jpg",
     description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price : "49900",
-    option1 : "bleu",
-    option2 : "rouge"   
-    },
+    options : [
+        "bleu",
+        "rouge",
+        "jaune",
+        "violet",
+        "noir"  
+    ]},
 {
     id : "_id_2",
     name : "Hirsch 400DTS",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/71f0odyTK9L._AC_SL1300_.jpg",
     description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price : "309900",
-    option1 : "bleu",
-    option2 : "rouge"   
-    },
+    options : [
+        "bleu",
+        "rouge" 
+    ]},
 {
     id : "_id_3",
     name : "Franck JS 105",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/41E%2BHkyJTfL._AC_.jpg",
     description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price : "209900",
-    option1 : "bleu",
-    option2 : "rouge"   
-    },
+    options : [
+        "bleu",
+        "rouge",
+        "jaune",
+        "violet",
+        "marron"  
+    ]},
 {
     id : "_id_4",
     name : "Kuros TTS",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/71-TflfsYEL._AC_SL1500_.jpg",
     description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price : "159900",
-    option1 : "bleu",
-    option2 : "rouge"   
-    },
+    options : [
+        "bleu",
+        "rouge",
+        "jaune",
+        "violet" 
+    ]},
 {
     id : "_id_5",
     name : "Katatone",
     imageUrl : "https://images-na.ssl-images-amazon.com/images/I/619Qes9U8aL._AC_SL1000_.jpg",
     description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     price : "59900",
-    option1 : "bleu",
-    option2 : "rouge"   
-    }]
+    options : [
+        "bleu",
+        "rouge",
+        "violet" 
+    ]}]
 console.log(mockDataDetail)
  
 
@@ -95,25 +109,26 @@ detailImageUrl.innerHTML = idChosenProduct.imageUrl
 detailDescription.innerHTML = " Description : " + idChosenProduct.description
 detailPrice.innerHTML = " Prix : " + idChosenProduct.price/100 + " € "
 
-const select = document.getElementById("select")
-
-const detailFirstObject = document.createElement("option")
-select.appendChild(detailFirstObject)
-
-detailFirstObject.setAttribute("value", "Option1")
-
-const detailSecondObject = document.createElement("option")
-select.appendChild(detailSecondObject)
-
-detailSecondObject.setAttribute("value", "Option2")
-
-detailFirstObject.innerHTML = idChosenProduct.option1
-detailSecondObject.innerHTML = idChosenProduct.option2
 
 //récupération id formulaire pour choix option
 
+const selectionOption = idChosenProduct.options
+console.log(selectionOption)
 
+for (let i in selectionOption){
+    const select = document.getElementById("select")
+    const detailObject = document.createElement("option")
+    select.appendChild(detailObject)
 
+    detailObject.setAttribute("value", `${selectionOption[i]}`)
+    detailObject.innerHTML = idChosenProduct.options[i]
+}
+
+//vérification des values
+let checking = document.querySelector("select");
+checking.addEventListener("change", function(){
+    console.log("value => "+this.value)
+})
 
 
 //récupération id formulaire pour choix option en prenant en compt data Javascript

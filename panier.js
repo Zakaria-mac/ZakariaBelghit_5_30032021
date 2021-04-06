@@ -1,3 +1,5 @@
-//envoi du produit au panier via localstorage
+/* Envoi du produit au panier via localstorage : 
+    - Récupération des données de la page détail
+    - Prise en compte du panier 
+*/
 
-let receptionPanier = document.getElementsByClassName("btn_envoiPanier")
