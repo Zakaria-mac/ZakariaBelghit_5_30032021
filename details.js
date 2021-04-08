@@ -53,6 +53,7 @@ const displayDetail = async () => {
     
     for (let i in selectionOption){
         const select = document.getElementById("select")
+
         const detailObject = document.createElement("option")
         select.appendChild(detailObject)
     
@@ -67,3 +68,21 @@ const displayDetail = async () => {
     })
 }
 displayDetail()
+
+/* Envoi du produit au panier via localstorage : 
+    - Récupération des données de la page détail
+    - Prise en compte du panier 
+*/
+
+const boutonEnvoi = document.getElementById('btn_envoiPanier')
+boutonEnvoi.addEventListener("click", function(e){
+    e.preventDefault
+
+    const newArrayShopping = [];
+    localStorage.setItem("newProduct", JSON.stringify(newArrayShopping))
+
+    const storeProduct = JSON.parse(localStorage.getItem("newProduct"))
+
+    newArrayShopping.push(`${"http://localhost:3000/api/cameras/" + id}`)
+   
+})

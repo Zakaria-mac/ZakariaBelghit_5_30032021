@@ -11,13 +11,98 @@
   
     <body>
         <header>
-        <div id="panier"></div>
         <h1>Récapitulatif de votre commande</h1>
         </header>
 
         <section>
             <h2>Votre panier</h2>
+            <div id="panier"></div>
         </section>
+
+        <form>
+            <fieldset>
+                <legend>Vos coordonnées</legend>
+                <label for="lastName">Nom</label>
+                <input type="text" name="lastName" id="lastName" autofocus placeholder="Ex : Dupond" />
+
+                <label for="firsName">Prénom</label>
+                <input type="text" name="firstName" id= "firstName" placeholder="Ex : Henri" />
+
+                <label for="email">Adresse E-mail</label>
+                <input type="email" name="email" id="email" placeholder="exemple@domaine.com" />
+
+                <label for="phone_number">Téléphone</label>
+                <input type="number" name="phone_number" id="phone_number" placeholder="0000000000" />
+
+                <label for="adresse">Numéro de voie et nom de rue</label>
+                <textarea name="adresse" id="adresse" placeholder="Ex : 78, rue Danton"></textarea>
+
+                <label for="post_code">Code postal</label>
+                <input type="number" name="post_code" id="post_code" placeholder="Ex : 33000" />
+
+                <label for="town">Ville</label>
+                <input type="text" name="town" id="name" placeholder="Ex : Bordeaux" />
+
+                <label for="country">Pays</label>
+                <input type="text" name="country" id="country" placeholder="Ex : France" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Adresse de facturations</legend>
+                <label for="invoice_address">Numéro de voie et nom de rue</label>
+                <textarea name="invoice_address" id="invoice_address" placeholder="Ex : 78, rue Danton"></textarea>
+
+                <label for="invoice_post_code">Code postal</label>
+                <input type="number" name="invoice_post_code" id="invoice_post_code" placeholder="Ex : 33000" />
+
+                <label for="invoice_town">Ville</label>
+                <input type="text" name="invoice_town" id="invoice_name" placeholder="Ex : Bordeaux" />
+
+                <label for="invoice_country">Pays</label>
+                <input type="text" name="invoice_country" id="invoice_country" placeholder="Ex : France" />
+            </fieldset>
+
+            <fieldset>
+                <legend>Vos coordonnées bancaires</legend>
+                <ol>
+                    <li>
+                        <legend>Type de carte bancaire
+                            <ol>
+                                <li>
+                                    <input type="radio" name="credit_card" id="credit_card_visa" />
+                                    <label for="credit_card_visa">VISA</label>                                  
+                                </li>
+                                <li>
+                                    <input type="radio" name="credit_card" id="credit_card_mastercard" />
+                                    <label for="credit_card_mastercard">MASTERCARD</label>                                   
+                                </li>
+                                <li>
+                                    <input type="radio" name="credit_card" id="credit_card_amex" />
+                                    <label for="credit_card_amex">American Express</label>                                   
+                                </li>
+                            </ol>
+                        </legend>
+                    </li>
+
+                    <li>
+                        <label for="owner_card">Nom du porteur de la carte</label>
+                        <input type="text" name="owner_card" id="owner_card" placeholder="Ex : DUPONT HENRI" />
+                    </li>
+
+                    <li>
+                        <label for="number_card">Numéros de carte</label>
+                        <input type="number" name="number_card" id="number_card" placeholder="Ex : 54** **** **** **32" />
+                    </li>
+
+                    <li>
+                        <label for="secure_number">Code de sécurité</label>
+                        <input type="number" name="secure_number" id="secure_number" placeholder="Ex : **3" />
+                    </li>
+                </ol>
+            </fieldset>
+
+            <button type="submit" value="Envoyer">Envoyer</button>
+        </form>
 
 
     </body>

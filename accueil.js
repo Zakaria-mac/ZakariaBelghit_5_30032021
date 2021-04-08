@@ -5,7 +5,7 @@ const loadMockData = () => {
 }
 */
 const loadMockData = async () => {
-    return await (await fetch("http://localhost:3000/api/cameras")).json()
+    return await (await fetch("https://ab-p5-api.herokuapp.com/api/cameras")).json()
 }
 
 //Affichage dans le HTML de la fonction retournant les objets
