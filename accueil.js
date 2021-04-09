@@ -5,7 +5,7 @@ const loadMockData = () => {
 }
 */
 const loadMockData = async () => {
-    return await (await fetch("https://ab-p5-api.herokuapp.com/api/cameras")).json()
+    return await (await fetch("http://localhost:3000/api/cameras/")).json()
 }
 
 //Affichage dans le HTML de la fonction retournant les objets
@@ -14,38 +14,58 @@ const displayListCameras = async () => {
     const listContainer = document.getElementById('container')
 
     for (let i in listCameras) {
+        
+        // Création des éléments qui vont recuillir les data de l'API
+
+        const firstContainer = document.createElement("div")
+        listContainer.appendChild(firstContainer)
 
         const camerasContainerElement = document.createElement("a")
-        listContainer.appendChild(camerasContainerElement)
-        console.log(camerasContainerElement)
-        
-        const camerasName = document.createElement("h2")
-        camerasContainerElement.appendChild(camerasName)
-
+        firstContainer.appendChild(camerasContainerElement)
 
         const camerasImage = document.createElement("img")
         camerasContainerElement.appendChild(camerasImage)
         
+        const containerCardBody = document.createElement("div")
+        camerasContainerElement.appendChild(containerCardBody)
+        
+        const camerasName = document.createElement("h2")
+        containerCardBody.appendChild(camerasName)
+   
         const camerasListDescription = document.createElement('ul')
-        camerasContainerElement.appendChild(camerasListDescription)
-
+        containerCardBody.appendChild(camerasListDescription)
 
         const camerasDescription = document.createElement("li")
         camerasListDescription.appendChild(camerasDescription)
 
-        
         const camerasPrice = document.createElement("li")
         camerasListDescription.appendChild(camerasPrice)
 
-        camerasContainerElement.setAttribute('href', `details.html?id=${listCameras[i]._id}`)
-        camerasImage.setAttribute("src", listCameras[i].imageUrl)
+        // Donne le rôle et la classe de chaque élément créé
 
+        firstContainer.setAttribute('class','card-deck col-12 col-sm-6 col-md-4 my-3')
+
+        camerasContainerElement.setAttribute('href', `details.html?id=${listCameras[i]._id}`)
+        camerasContainerElement.setAttribute('class', 'card')
+
+        camerasImage.setAttribute("src", listCameras[i].imageUrl)
+        camerasImage.setAttribute('class', 'card-img-top p-2')
+        camerasImage.setAttribute('alt', 'Image Appareils Photos')
+        camerasImage.setAttribute('title', 'Cliquez pour en savoir plus !')
+
+        containerCardBody.setAttribute('class', 'card-body')
+        
+        camerasName.setAttribute('class', 'card-title text-center')
+
+        camerasListDescription.setAttribute('class', 'card-text list-unstyled text-left')
+
+        // On applique sur HTML les éléments créé
+        
         camerasName.innerHTML = listCameras[i].name 
         camerasImage.innerHTML = listCameras[i].imageUrl 
         camerasPrice.innerHTML = listCameras[i].price/100 + " € "
         camerasDescription.innerHTML = listCameras[i].description
     }
 }
-
 displayListCameras()
 

@@ -17,7 +17,7 @@ const loadData = async () => {
 //récupération id formulaire pour choix option
 const displayDetail = async () => {
 
-    const idChosenProduct = await loadData()
+    const idChosenProduct = await loadData() 
 
     const containerListDetail = document.getElementById('detail')
     console.log(containerListDetail )
@@ -28,8 +28,10 @@ const displayDetail = async () => {
     const detailName = document.createElement("h2")
     detailMainContainer.appendChild(detailName)
     
+    const detailImageContainer = document.createElement("div")
     const detailImageUrl = document.createElement("img")
-    detailMainContainer.appendChild(detailImageUrl)
+    detailMainContainer.appendChild(detailImageContainer)
+    detailImageContainer.appendChild(detailImageUrl)
     
     detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
     
@@ -66,23 +68,36 @@ const displayDetail = async () => {
         checking.addEventListener("change", function(){
         console.log("value => "+this.value)
     })
+
+    /* Envoi du produit au panier via localstorage : 
+    - Récupération des données de la page détail
+    */
+
+    productChosen = JSON.stringify(idChosenProduct)
+    localStorage.setItem("idChosenProduct", productChosen)
+
+    let newProduct = JSON.parse(localStorage.getItem('idChosenProduct'))
+
+    //Envoi au panier 
+    let myNewArray = new Array()
+
+    myNewArray.push(newProduct)
+
+    productArray = JSON.stringify(myNewArray)
+
+    localStorage.setItem("product", productArray)
+    console.log(localStorage)
 }
 displayDetail()
 
-/* Envoi du produit au panier via localstorage : 
-    - Récupération des données de la page détail
-    - Prise en compte du panier 
-*/
 
-const boutonEnvoi = document.getElementById('btn_envoiPanier')
-boutonEnvoi.addEventListener("click", function(e){
-    e.preventDefault
+//Test panier
 
-    const newArrayShopping = [];
-    localStorage.setItem("newProduct", JSON.stringify(newArrayShopping))
 
-    const storeProduct = JSON.parse(localStorage.getItem("newProduct"))
 
-    newArrayShopping.push(`${"http://localhost:3000/api/cameras/" + id}`)
+
    
-})
+
+    //fonction to save data
+    
+

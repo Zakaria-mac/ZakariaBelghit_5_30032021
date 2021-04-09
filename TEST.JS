@@ -97,3 +97,19 @@ for (let i = 0; i < arr.length; i++) {
     option.appendChild(txt);
     selectedOption.insertBefore(option,selectedOption.lastChild);
 }
+
+//************************* */
+const boutonEnvoi = document.getElementById("btn_envoiPanier")
+boutonEnvoi.addEventListener("click", function(){
+    const essaiFonction = () => {
+        return displayDetail()
+    }
+ 
+    let newArrayShopping = [];
+    newArrayShopping = JSON.parse(localStorage.getItem('product'))
+    localStorage.setItem('product', JSON.stringify(newArrayShopping))
+ 
+    newArrayShopping.push(essaiFonction())
+    
+})
+localStorage.removeItem('newArrayShopping')
