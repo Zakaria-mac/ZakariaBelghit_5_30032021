@@ -9928,5 +9928,38 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.branding {
+  background-color: #f1eaf1;
+}
+
+.logo {
+  width: 18%;
+}
+
+.social {
+  width: 22%;
+}
+
+body a {
+  text-decoration: none;
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body h1, h2 {
+  color: black;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+body h3 {
+  color: black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+}
+
+.info a {
+  color: black;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /*# sourceMappingURL=style.css.map */

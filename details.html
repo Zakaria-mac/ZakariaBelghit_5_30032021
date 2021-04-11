@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/style.css" /> 
+        <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.min.css">
   
         <script type="text/javascript" src="details.js" defer></script>
 
@@ -10,9 +11,40 @@
     </head>
   
     <body>
-        <header>
-
-        </header>
+        <!DOCTYPE html>
+        <html lang="fr">
+            <head>
+                <meta charset="utf-8" />
+                <link rel="stylesheet" href="css/style.css" />
+                <script type="text/javascript" src="accueil.js" defer></script>
+            
+                <title>Orinoco - caméras </title>
+            </head>
+          
+            <body>
+                <header>
+                    <div class="branding">
+                        <div class="container" >
+                            <div class="row">
+                                <nav class="col navbar navbar-expand navbar-light d-flex justify-content-between">
+                                    <div class="navbar-brand">
+                                        <img src="images/logo.png" alt="logo Orinoco" title="Logo Orinoco"/>
+                                    </div>
+                                    <div class="">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item active">
+                                                <a class="nav-link" href="index.html">Accueil</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="panier.html">Panier</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </header>
 
         <section>
             <div id="detail" 
@@ -24,11 +56,48 @@
                 </select>
             </form>
               
-            <button id="btn_envoiPanier" type="button">Ajouter au panier</button>
+            <button id="btn_envoiPanier" type="submit" >Ajouter au panier</button>
         </section>
 
         <footer>
-            
+            <div class="branding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col ">
+                            <div class="logo">
+                            <img src="images/logo.png"alt="logo Orinoco" title="Logo Orinoco" />
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                    
+                            <ul class="list-unstyled">
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les conditions générales de ventes (CGV)">Conditions générales de ventes (CGV)</a></li>
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les mentions légales">Mentions légales</a></li>
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les politiques de protections des données (RGPD)">Politiques de protections des données (RGPD)</a></li>                                        
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les cookies">Cookies</a></li>
+                                <li><a href="orinoco.com/faq" aria-label="liens vers la Foire à Question">FAQ</a></li>
+                            </ul>	   
+
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-center">
+
+                            <ul class="list-unstyled list-inline">
+
+                                <li class="list-inline-item"><a  href="https://twitter.com" aria-label="lien twitter" title="Twitter"><span class="fab fa-twitter fa-2x" ></span></a></li>                      
+                                <li class="list-inline-item"><a  href="https://www.facebook.com" aria-label="lien facebook" title="Facebook" ><span class="fab fa-facebook fa-2x"></span></a></li>
+                                <li  class="list-inline-item"><a href="https://www.instagram.com" aria-label="lien instagram" title="Instagram"><span class="fab fa-instagram fa-2x"></span></a></li>
+                                <li class="list-inline-item"><a href="https://fr.linkedin.com/" aria-label="lien linkedin" title="LinkedIn"><span class="fab fa-linkedin fa-2x"></span></a></li>
+                            
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
      
     

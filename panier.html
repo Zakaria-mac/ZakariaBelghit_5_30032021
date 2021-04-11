@@ -3,71 +3,109 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.min.css">
         
         <script type="text/javascript" src="panier.js" defer></script>
-        <script type="text/javascript" src="details.js" defer></script>
 
         <title>Orinoco - Votre panier</title>
     </head>
   
     <body>
         <header>
-        <h1>Récapitulatif de votre commande</h1>
+            <!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="css/style.css" />
+        <script type="text/javascript" src="accueil.js" defer></script>
+    
+        <title>Orinoco - caméras </title>
+    </head>
+  
+    <body>
+        <header>
+            <div class="branding">
+                <div class="container" >
+                    <div class="row">
+                        <nav class="col navbar navbar-expand navbar-light d-flex justify-content-between">
+                            <div class="navbar-brand">
+                                <img src="images/logo.png" alt="logo Orinoco" title="Logo Orinoco"/>
+                            </div>
+                            <div class="">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="index.html">Accueil</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="panier.html">Panier</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </header>
 
         <section>
-            <h2>Votre panier</h2>
+            <h1>Récapitulatif de votre commande</h1>
             <div id="panier"></div>
+
+            <button id="valider">Validez votre choix</button>
+
+            <a href="index.html" >
+            <div id="modifier" style="border: solid 1px black;">Modifiez votre choix</div>
+            </a>
         </section>
 
         <form>
             <fieldset>
                 <legend>Vos coordonnées</legend>
                 <label for="lastName">Nom</label>
-                <input type="text" name="lastName" id="lastName" autofocus placeholder="Ex : Dupond" />
+                <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]{2,15}" autofocus required placeholder="Ex : Dupond" />
 
-                <label for="firsName">Prénom</label>
-                <input type="text" name="firstName" id= "firstName" placeholder="Ex : Henri" />
+                <label for="firstName">Prénom</label>
+                <input type="text" name="firstName" id= "firstName"  pattern="[A-Za-z]{2,15}" required placeholder="Ex : Henri" />
 
                 <label for="email">Adresse E-mail</label>
-                <input type="email" name="email" id="email" placeholder="exemple@domaine.com" />
+                <input type="email" name="email" id="email" required placeholder="exemple@domaine.com" />
 
                 <label for="phone_number">Téléphone</label>
-                <input type="number" name="phone_number" id="phone_number" placeholder="0000000000" />
+                <input type="tel" name="phone_number" id="phone_number" pattern="[0-9]{10,12}" required placeholder="0000000000" />
 
                 <label for="adresse">Numéro de voie et nom de rue</label>
-                <textarea name="adresse" id="adresse" placeholder="Ex : 78, rue Danton"></textarea>
+                <textarea name="adresse" id="adresse" required  placeholder="Ex : 78, rue Danton"></textarea>
 
                 <label for="post_code">Code postal</label>
-                <input type="number" name="post_code" id="post_code" placeholder="Ex : 33000" />
+                <input type="text" name="post_code" id="post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
 
                 <label for="town">Ville</label>
-                <input type="text" name="town" id="name" placeholder="Ex : Bordeaux" />
+                <input type="text" name="town" id="town" pattern="[A-Za-z]{2,10}" required placeholder="Ex : Bordeaux" />
 
                 <label for="country">Pays</label>
-                <input type="text" name="country" id="country" placeholder="Ex : France" />
+                <input type="text" name="country" id="country" pattern="[A-Za-z]{2,10}" required  placeholder="Ex : France" />
             </fieldset>
 
             <fieldset>
                 <legend>Adresse de facturations</legend>
                 <label for="invoice_address">Numéro de voie et nom de rue</label>
-                <textarea name="invoice_address" id="invoice_address" placeholder="Ex : 78, rue Danton"></textarea>
+                <textarea name="invoice_address" id="invoice_address" required placeholder="Ex : 78, rue Danton"></textarea>
 
                 <label for="invoice_post_code">Code postal</label>
-                <input type="number" name="invoice_post_code" id="invoice_post_code" placeholder="Ex : 33000" />
+                <input type="text" name="invoice_post_code" id="invoice_post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
 
                 <label for="invoice_town">Ville</label>
-                <input type="text" name="invoice_town" id="invoice_name" placeholder="Ex : Bordeaux" />
+                <input type="text" name="invoice_town" id="invoice_town" pattern="[A-Za-z]{2,10}" required placeholder="Ex : Bordeaux" />
 
                 <label for="invoice_country">Pays</label>
-                <input type="text" name="invoice_country" id="invoice_country" placeholder="Ex : France" />
+                <input type="text" name="invoice_country" id="invoice_country" pattern="[A-Za-z]{2,10}" required placeholder="Ex : France" />
             </fieldset>
 
             <fieldset>
                 <legend>Vos coordonnées bancaires</legend>
                 <ol>
                     <li>
-                        <legend>Type de carte bancaire
+                        <h2>Type de carte bancaire</h2>
                             <ol>
                                 <li>
                                     <input type="radio" name="credit_card" id="credit_card_visa" />
@@ -78,26 +116,30 @@
                                     <label for="credit_card_mastercard">MASTERCARD</label>                                   
                                 </li>
                                 <li>
-                                    <input type="radio" name="credit_card" id="credit_card_amex" />
+                                    <input type="radio" name="credit_card" id="credit_card_amex"/>
                                     <label for="credit_card_amex">American Express</label>                                   
                                 </li>
                             </ol>
-                        </legend>
                     </li>
 
                     <li>
                         <label for="owner_card">Nom du porteur de la carte</label>
-                        <input type="text" name="owner_card" id="owner_card" placeholder="Ex : DUPONT HENRI" />
+                        <input type="text" name="owner_card" id="owner_card" pattern="[A-Za-z][A-Za-z]" required placeholder="Ex : DUPONT HENRI" />
                     </li>
 
                     <li>
-                        <label for="number_card">Numéros de carte</label>
-                        <input type="number" name="number_card" id="number_card" placeholder="Ex : 54** **** **** **32" />
+                        <label for="number_card">Numéros de carte (pour VISA/ MASTERCARD)</label>
+                        <input type="text" name="number_card" id="number_card" pattern="[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}" required placeholder="Ex : 54** **** **** **32" />
+                    </li>
+
+                    <li>
+                        <label for="number_card">Numéros de carte (pour American Express)</label>
+                        <input type="text" name="number_card_amex" id="number_card_amex" pattern="[[0-9]{4}[0-9]{6}[0-9]{5}" required placeholder="Ex : 54** **** **** **32" />
                     </li>
 
                     <li>
                         <label for="secure_number">Code de sécurité</label>
-                        <input type="number" name="secure_number" id="secure_number" placeholder="Ex : **3" />
+                        <input type="text" name="secure_number" id="secure_number" pattern="[0-9]{3,4}" required placeholder="Ex : **3 ou ***4" />
                     </li>
                 </ol>
             </fieldset>
@@ -106,7 +148,44 @@
         </form>
 
         <footer>
-            
+            <div class="branding">
+                <div class="container">
+                    <div class="row">
+                        <div class="col ">
+                            <div class="logo">
+                            <img src="images/logo.png"alt="logo Orinoco" title="Logo Orinoco" />
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                    
+                            <ul class="list-unstyled">
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les conditions générales de ventes (CGV)">Conditions générales de ventes (CGV)</a></li>
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les mentions légales">Mentions légales</a></li>
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les politiques de protections des données (RGPD)">Politiques de protections des données (RGPD)</a></li>                                        
+                                <li><a href="orinoco.com/termes-conditions" aria-label="liens vers les cookies">Cookies</a></li>
+                                <li><a href="orinoco.com/faq" aria-label="liens vers la Foire à Question">FAQ</a></li>
+                            </ul>	   
+
+                        </div>
+
+                        <div class="col-6 d-flex justify-content-center">
+
+                            <ul class="list-unstyled list-inline">
+
+                                <li class="list-inline-item"><a  href="https://twitter.com" aria-label="lien twitter" title="Twitter"><span class="fab fa-twitter fa-2x" ></span></a></li>                      
+                                <li class="list-inline-item"><a  href="https://www.facebook.com" aria-label="lien facebook" title="Facebook" ><span class="fab fa-facebook fa-2x"></span></a></li>
+                                <li  class="list-inline-item"><a href="https://www.instagram.com" aria-label="lien instagram" title="Instagram"><span class="fab fa-instagram fa-2x"></span></a></li>
+                                <li class="list-inline-item"><a href="https://fr.linkedin.com/" aria-label="lien linkedin" title="LinkedIn"><span class="fab fa-linkedin fa-2x"></span></a></li>
+                            
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
         </footer>
 
 

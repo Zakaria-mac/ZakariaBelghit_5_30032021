@@ -71,26 +71,28 @@ const displayDetail = async () => {
 
     /* Envoi du produit au panier via localstorage : 
     - Récupération des données de la page détail
-    */
+    */   
+    const boutonEnvoi = document.querySelector("button")
+    boutonEnvoi.addEventListener("click", function(){
 
-    productChosen = JSON.stringify(idChosenProduct)
-    localStorage.setItem("idChosenProduct", productChosen)
-
-    let newProduct = JSON.parse(localStorage.getItem('idChosenProduct'))
-
-    //Envoi au panier 
-    let myNewArray = new Array()
-
-    myNewArray.push(newProduct)
-
-    productArray = JSON.stringify(myNewArray)
-
-    localStorage.setItem("product", productArray)
-    console.log(localStorage)
+        productChosen = JSON.stringify(idChosenProduct)
+        localStorage.setItem("idChosenProduct", productChosen)
+    
+        let newProduct = JSON.parse(localStorage.getItem('idChosenProduct'))
+    
+        //Envoi au panier 
+        let myNewArray = new Array()
+    
+        myNewArray.push(newProduct)
+    
+        productArray = JSON.stringify(myNewArray)
+    
+        localStorage.setItem("product", productArray)
+        myNewArray = JSON.parse(localStorage.getItem('product'))
+    })
 }
 displayDetail()
-
-
+  
 //Test panier
 
 
