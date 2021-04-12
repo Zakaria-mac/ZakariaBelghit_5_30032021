@@ -14,7 +14,6 @@ const loadData = async () => {
     return await (await fetch("http://localhost:3000/api/cameras/" + id)).json()
 }
 
-//récupération id formulaire pour choix option
 const displayDetail = async () => {
 
     const idChosenProduct = await loadData() 
@@ -31,9 +30,7 @@ const displayDetail = async () => {
     const detailImageContainer = document.createElement("div")
     const detailImageUrl = document.createElement("img")
     detailMainContainer.appendChild(detailImageContainer)
-    detailImageContainer.appendChild(detailImageUrl)
-    
-    detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
+    detailImageContainer.appendChild(detailImageUrl)    
     
     const detailDescription = document.createElement("p")
     detailMainContainer.appendChild(detailDescription)
@@ -42,19 +39,29 @@ const displayDetail = async () => {
     detailMainContainer.appendChild(detailPrice)
     
     
-    detailName.innerHTML = " Nom : " + idChosenProduct.name
+    detailName.innerHTML = idChosenProduct.name
     detailImageUrl.innerHTML = idChosenProduct.imageUrl
-    detailDescription.innerHTML = " Description : " + idChosenProduct.description
-    detailPrice.innerHTML = " Prix : " + idChosenProduct.price/100 + " € "
+    detailDescription.innerHTML =idChosenProduct.description
+    detailPrice.innerHTML = idChosenProduct.price/100 + " € "
+
+     // Donne le rôle et la classe de chaque élément créé
+     containerListDetail.setAttribute("class", "card card-body col-12 text-left")
+     detailName.setAttribute("class", "card-title text-center")
+     detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
+     detailImageUrl.setAttribute("class", "card-img")
+     detailDescription.setAttribute("class", "card-text")
+
     
-    
-    //récupération id formulaire pour choix option
+    //récupération id formulaire pour choix option + mise en place Bootstrap
     
     const selectionOption = idChosenProduct.lenses
     console.log(selectionOption)
     
     for (let i in selectionOption){
         const select = document.getElementById("select")
+        containerListDetail.appendChild(select)
+
+        select.setAttribute("class", "card-text w-25")
 
         const detailObject = document.createElement("option")
         select.appendChild(detailObject)
@@ -73,6 +80,9 @@ const displayDetail = async () => {
     - Récupération des données de la page détail
     */   
     const boutonEnvoi = document.querySelector("button")
+    containerListDetail.appendChild(boutonEnvoi)
+    boutonEnvoi.setAttribute("class", "card-link w-25")
+
     boutonEnvoi.addEventListener("click", function(){
 
         productChosen = JSON.stringify(idChosenProduct)
@@ -92,14 +102,4 @@ const displayDetail = async () => {
     })
 }
 displayDetail()
-  
-//Test panier
-
-
-
-
-   
-
-    //fonction to save data
-    
 

@@ -1,29 +1,32 @@
+@import "variable_overrides";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 .branding{
     background-color: #f1eaf1;
 };
-.logo{
-    width: 18%;
-};
+.logo img{
+    width: 90%;
+}
 .social{
     width: 22%;
 };
 body a{
     text-decoration: none;
     color: black;
-    font-family:'Courier New', Courier, monospace
-};
- body h1, h2{
-    color: black;
     font-family:'Courier New', Courier, monospace;
-    font-weight: bold
+    font-size: 1.1em;
+    transform: scale(1);
+    transition: transform 300ms;
+    &:hover{
+        text-decoration: none;
+        color: black;
+        transform: scale(1.05)
+    }
 };
-body h3{
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
 .info a{
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    &:hover{
+        text-decoration: underline;
+    }
 }

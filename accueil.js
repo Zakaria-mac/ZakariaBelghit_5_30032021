@@ -41,7 +41,7 @@ const displayListCameras = async () => {
         const camerasPrice = document.createElement("li")
         camerasListDescription.appendChild(camerasPrice)
 
-        // Donne le rôle et la classe de chaque élément créé
+        // Donne le rôle et la classe de chaque élément créé + mise en place Bootstrap
 
         firstContainer.setAttribute('class','card-deck col-12 col-sm-6 col-md-4 my-3')
 

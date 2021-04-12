@@ -113,3 +113,18 @@ boutonEnvoi.addEventListener("click", function(){
     
 })
 localStorage.removeItem('newArrayShopping')
+
+
+{
+    color: black;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.8em
+};
+
+    color: black;
+    font-family: '
+    &:hover{
+        text-decoration: underline;
+    }
+}
