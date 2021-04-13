@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.min.css">
         
-        <script type="text/javascript" src="panier.js" defer></script>
+        <script src="panier.js" defer></script>
 
         <title>Orinoco - Votre panier</title>
     </head>
@@ -34,106 +34,113 @@
             </div>
         </header>
 
-        <section>
-            <h1>Récapitulatif de votre commande</h1>
-            <div id="panier"></div>
+        <section>  
+            <div class="container">
+                <h1>Récapitulatif de votre commande</h1>
+                <div class="row mt-5 mb-5">
+                    
+                    <div class="col-4 cart-row text-center">
+                        <h2>Produits sélectionnés</h2>
+                        <div id="productSelected">
 
-            <button id="valider">Validez votre choix</button>
+                        </div>
+                    </div>
+                    <div class ="col-4 cart-row  text-center">
+                        <h2>Prix</h2>
+                        <div id="price">
 
-            <a href="index.html" >
-            <div id="modifier" style="border: solid 1px black;">Modifiez votre choix</div>
-            </a>
+                        </div>
+                    </div>
+                    <div class="col-4 cart-row  text-center">
+                        <h2>Quantité</h2>
+                        <div id="quantity">
+                            <input class="cart-quantity-input" type="number" value="1">
+                            <button type="button" class="btn btn-danger">Supprimer</button>
+                        </div>
+                    </div>
+                </div>          
+            </div>
         </section>
 
-        <form>
-            <fieldset>
-                <legend>Vos coordonnées</legend>
-                <label for="lastName">Nom</label>
-                <input type="text" name="lastName" id="lastName" pattern="[A-Za-z]{2,15}" autofocus required placeholder="Ex : Dupond" />
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <form>
+                        <fieldset>
+                            <legend>Vos coordonnées</legend>
+                            
+                            <div class="form-group w-75">
+                                <label for="lastName">Nom</label>
+                                <input type="text" class="form-control" name="lastName" id="lastName" pattern="[A-Za-z]{2,15}" autofocus required placeholder="Ex : Dupond" />
+                            </div>
+            
+                            <div class="form-group w-75">
+                                <label for="firstName">Prénom</label>
+                                <input type="text" class="form-control" name="firstName" id= "firstName"  pattern="[A-Za-z]{2,15}" required placeholder="Ex : Henri" />
+                            </div>
+                        
+                            <div class="form-group w-75">
+                                <label for="email">Adresse E-mail</label>
+                                <input type="email" class="form-control" name="email" id="email" required placeholder="exemple@domaine.com" />
+                            </div>
+            
+                            <div class="form-group w-75">
+                                <label for="phone_number">Téléphone</label>
+                                <input type="tel" class="form-control" name="phone_number" id="phone_number" pattern="[0-9]{10,12}" required placeholder="0000000000" />
+                            </div>
+            
+                            <div class="form-group w-75">
+                                <label for="adresse">Numéro de voie et nom de rue</label>
+                                <textarea name="adresse" class="form-control"  id="adresse" required  placeholder="Ex : 78, rue Danton"></textarea>
+                            </div>
+            
+                            <div class="form-group w-75">
+                                <label for="post_code">Code postal</label>
+                                <input type="text" class="form-control" name="post_code" id="post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
+                            </div>
+            
+                            <div class="form-group w-75">
+                                <label for="town">Ville</label>
+                                <input type="text" class="form-control"  name="town" id="town" pattern="[A-Za-z] [A-Za-z] {2,10}" required placeholder="Ex : Bordeaux" />
+                            </div>
+                            
+                            <div class="form-group w-75">
+                                <label for="country">Pays</label>
+                                <input type="text" class="form-control" name="country" id="country" pattern="[A-Za-z]{2,10}" required  placeholder="Ex : France" />
+                            </div>
+                        </fieldset>
+            
+                        <fieldset>
+                            <legend>Adresse de facturations</legend>
 
-                <label for="firstName">Prénom</label>
-                <input type="text" name="firstName" id= "firstName"  pattern="[A-Za-z]{2,15}" required placeholder="Ex : Henri" />
+                            <div class="form-group w-75">
+                                <label for="invoice_address">Numéro de voie et nom de rue</label>
+                                <textarea name="invoice_address" class="form-control" id="invoice_address" required placeholder="Ex : 78, rue Danton"></textarea>
+                            </div>
 
-                <label for="email">Adresse E-mail</label>
-                <input type="email" name="email" id="email" required placeholder="exemple@domaine.com" />
+                            <div class="form-group w-75">
+                                <label for="invoice_post_code">Code postal</label>
+                                <input type="text" name="invoice_post_code" class="form-control" id="invoice_post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
+                            </div>
 
-                <label for="phone_number">Téléphone</label>
-                <input type="tel" name="phone_number" id="phone_number" pattern="[0-9]{10,12}" required placeholder="0000000000" />
-
-                <label for="adresse">Numéro de voie et nom de rue</label>
-                <textarea name="adresse" id="adresse" required  placeholder="Ex : 78, rue Danton"></textarea>
-
-                <label for="post_code">Code postal</label>
-                <input type="text" name="post_code" id="post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
-
-                <label for="town">Ville</label>
-                <input type="text" name="town" id="town" pattern="[A-Za-z]{2,10}" required placeholder="Ex : Bordeaux" />
-
-                <label for="country">Pays</label>
-                <input type="text" name="country" id="country" pattern="[A-Za-z]{2,10}" required  placeholder="Ex : France" />
-            </fieldset>
-
-            <fieldset>
-                <legend>Adresse de facturations</legend>
-                <label for="invoice_address">Numéro de voie et nom de rue</label>
-                <textarea name="invoice_address" id="invoice_address" required placeholder="Ex : 78, rue Danton"></textarea>
-
-                <label for="invoice_post_code">Code postal</label>
-                <input type="text" name="invoice_post_code" id="invoice_post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
-
-                <label for="invoice_town">Ville</label>
-                <input type="text" name="invoice_town" id="invoice_town" pattern="[A-Za-z]{2,10}" required placeholder="Ex : Bordeaux" />
-
-                <label for="invoice_country">Pays</label>
-                <input type="text" name="invoice_country" id="invoice_country" pattern="[A-Za-z]{2,10}" required placeholder="Ex : France" />
-            </fieldset>
-
-            <fieldset>
-                <legend>Vos coordonnées bancaires</legend>
-                <ol>
-                    <li>
-                        <h2>Type de carte bancaire</h2>
-                            <ol>
-                                <li>
-                                    <input type="radio" name="credit_card" id="credit_card_visa" />
-                                    <label for="credit_card_visa">VISA</label>                                  
-                                </li>
-                                <li>
-                                    <input type="radio" name="credit_card" id="credit_card_mastercard" />
-                                    <label for="credit_card_mastercard">MASTERCARD</label>                                   
-                                </li>
-                                <li>
-                                    <input type="radio" name="credit_card" id="credit_card_amex"/>
-                                    <label for="credit_card_amex">American Express</label>                                   
-                                </li>
-                            </ol>
-                    </li>
-
-                    <li>
-                        <label for="owner_card">Nom du porteur de la carte</label>
-                        <input type="text" name="owner_card" id="owner_card" pattern="[A-Za-z][A-Za-z]" required placeholder="Ex : DUPONT HENRI" />
-                    </li>
-
-                    <li>
-                        <label for="number_card">Numéros de carte (pour VISA/ MASTERCARD)</label>
-                        <input type="text" name="number_card" id="number_card" pattern="[0-9]{4}[0-9]{4}[0-9]{4}[0-9]{4}" required placeholder="Ex : 54** **** **** **32" />
-                    </li>
-
-                    <li>
-                        <label for="number_card">Numéros de carte (pour American Express)</label>
-                        <input type="text" name="number_card_amex" id="number_card_amex" pattern="[[0-9]{4}[0-9]{6}[0-9]{5}" required placeholder="Ex : 54** **** **** **32" />
-                    </li>
-
-                    <li>
-                        <label for="secure_number">Code de sécurité</label>
-                        <input type="text" name="secure_number" id="secure_number" pattern="[0-9]{3,4}" required placeholder="Ex : **3 ou ***4" />
-                    </li>
-                </ol>
-            </fieldset>
-
-            <button type="submit" value="Envoyer">Envoyer</button>
-        </form>
-
+                            <div class="form-group w-75">
+                                <label for="invoice_town">Ville</label>
+                                <input type="text" name="invoice_town" class="form-control" id="invoice_town" pattern="[A-Za-z]{2,10}" required placeholder="Ex : Bordeaux" />
+                            </div>
+            
+                            <div class="form-group w-75">
+                                <label for="invoice_country">Pays</label>
+                                <input type="text" name="invoice_country" class="form-control" id="invoice_country" pattern="[A-Za-z]{2,10}" required placeholder="Ex : France" />
+                            </div>
+                        </fieldset>
+            
+                        <button type="submit" value="Envoyer">Envoyer</button>
+                    </form>
+       
+                </div>
+            </div>
+        </div>
+        
         <footer>
             <div class="branding mt-5">
                 <div class="container">

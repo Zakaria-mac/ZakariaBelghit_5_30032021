@@ -38,7 +38,7 @@ const displayListCameras = async () => {
         const camerasDescription = document.createElement("li")
         camerasListDescription.appendChild(camerasDescription)
 
-        const camerasPrice = document.createElement("li")
+        const camerasPrice = document.createElement("strong")
         camerasListDescription.appendChild(camerasPrice)
 
         // Donne le rôle et la classe de chaque élément créé + mise en place Bootstrap

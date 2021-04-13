@@ -9965,4 +9965,17 @@ body a:hover {
   text-decoration: underline;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
+.card-link {
+  transform: scale(1);
+  transition: transform 300ms;
+}
+.card-link:hover {
+  transform: scale(1.04);
+  border: 3px solid red;
+}
+
 /*# sourceMappingURL=style.css.map */

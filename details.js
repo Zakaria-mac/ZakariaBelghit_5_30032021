@@ -24,7 +24,7 @@ const displayDetail = async () => {
     const detailMainContainer = document.createElement("div")
     containerListDetail.appendChild(detailMainContainer)
     
-    const detailName = document.createElement("h2")
+    const detailName = document.createElement("h1")
     detailMainContainer.appendChild(detailName)
     
     const detailImageContainer = document.createElement("div")
@@ -35,7 +35,7 @@ const displayDetail = async () => {
     const detailDescription = document.createElement("p")
     detailMainContainer.appendChild(detailDescription)
     
-    const detailPrice = document.createElement("p")
+    const detailPrice = document.createElement("strong")
     detailMainContainer.appendChild(detailPrice)
     
     
@@ -49,8 +49,8 @@ const displayDetail = async () => {
      detailName.setAttribute("class", "card-title text-center")
      detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
      detailImageUrl.setAttribute("class", "card-img")
-     detailDescription.setAttribute("class", "card-text")
-
+     detailDescription.setAttribute("class", "card-text mt-3")
+     detailPrice.setAttribute("class", "card-text mb-3")
     
     //récupération id formulaire pour choix option + mise en place Bootstrap
     
@@ -61,45 +61,58 @@ const displayDetail = async () => {
         const select = document.getElementById("select")
         containerListDetail.appendChild(select)
 
-        select.setAttribute("class", "card-text w-25")
+        select.setAttribute("class", "card-text w-25 cursor")
 
         const detailObject = document.createElement("option")
         select.appendChild(detailObject)
     
         detailObject.setAttribute("value", `${selectionOption[i]}`)
         detailObject.innerHTML = idChosenProduct.lenses[i]
-    }
+    } 
     
     //vérification des values
     let checking = document.querySelector("select");
         checking.addEventListener("change", function(){
         console.log("value => "+this.value)
     })
-
+    
+    
+    
     /* Envoi du produit au panier via localstorage : 
     - Récupération des données de la page détail
     */   
+
     const boutonEnvoi = document.querySelector("button")
     containerListDetail.appendChild(boutonEnvoi)
-    boutonEnvoi.setAttribute("class", "card-link w-25")
+    boutonEnvoi.setAttribute("class", "card-link w-25 mt-2")
 
+    boutonEnvoi.setAttribute("action", "panier.html")
+    
     boutonEnvoi.addEventListener("click", function(){
-
-        productChosen = JSON.stringify(idChosenProduct)
-        localStorage.setItem("idChosenProduct", productChosen)
-    
-        let newProduct = JSON.parse(localStorage.getItem('idChosenProduct'))
-    
+        const selectedOption = document.getElementById("select").value
+        const chosenProduct = {
+            name : idChosenProduct.name,
+            image :  idChosenProduct.imageUrl,
+            description : idChosenProduct.description,
+            price : idChosenProduct.price/100 + " € ",
+            lenses : selectedOption
+        }
+       
+        localStorage.setItem("chosenProduct", JSON.stringify(chosenProduct))
+        JSON.parse(localStorage.getItem('chosenProduct')) 
+        
         //Envoi au panier 
+    
         let myNewArray = new Array()
+        myNewArray = JSON.parse(localStorage.getItem('product')) ||[]
     
-        myNewArray.push(newProduct)
-    
-        productArray = JSON.stringify(myNewArray)
-    
-        localStorage.setItem("product", productArray)
-        myNewArray = JSON.parse(localStorage.getItem('product'))
-    })
-}
+        myNewArray.push(JSON.parse(localStorage.getItem('chosenProduct'))) 
+       
+        localStorage.setItem("product", JSON.stringify(myNewArray))   
+        })
+    }
 displayDetail()
 
+
+    
+    

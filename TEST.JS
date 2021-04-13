@@ -112,19 +112,26 @@ boutonEnvoi.addEventListener("click", function(){
     newArrayShopping.push(essaiFonction())
     
 })
-localStorage.removeItem('newArrayShopping')
 
 
-{
-    color: black;
-    font-family:'Courier New', Courier, monospace;
-    font-weight: bold;
-    font-size: 1.8em
-};
+displayDetail()
 
-    color: black;
-    font-family: '
-    &:hover{
-        text-decoration: underline;
+
+const shoppingCart = async () => {
+    return localStorage.getItem('product')
+}
+console.log(shoppingCart)
+
+const shoppingCartDisplay = async () => {
+    const storage = await shoppingCart()
+    const primaryContainer = document.getElementById("productSelected")
+
+    for (i = 0; i < storage.length; i++){
+        const nameOfProduct = document.createElement("div")
+        primaryContainer.appendChild(nameOfProduct)
+
+     
+        console.log(nameOfProduct)
     }
 }
+shoppingCartDisplay()
