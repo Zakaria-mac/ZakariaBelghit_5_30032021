@@ -51,8 +51,9 @@ const displayDetail = async () => {
      detailName.setAttribute("class", "card-title text-center")
 
      detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
-     detailImageUrl.setAttribute("alt","Image de l'appareil photographique sélectionné")
      detailImageUrl.setAttribute("class", "card-img")
+     detailImageUrl.setAttribute("alt","Image de l'appareil photographique sélectionné")
+     detailImageUrl.setAttribute("title","Image de l'appareil photographique sélectionné")
 
      detailDescription.setAttribute("class", "card-text mt-3")
 
@@ -115,8 +116,16 @@ const displayDetail = async () => {
        
         localStorage.setItem("product", JSON.stringify(myNewArray))   
         })
+
+        //Alerte envoyée pour confirmer l'envoi au Panier
+        
+        boutonEnvoi.addEventListener("click", function(){
+            confirm("Votre produit à bien été ajouté au panier")
+        })
     }
 displayDetail()
+
+
 
 
     
