@@ -36,28 +36,12 @@
 
         <section>  
             <div class="container">
-                <h1>Récapitulatif de votre commande</h1>
+                <h1 class="text-center">Récapitulatif de votre commande</h1>
                 <div class="row mt-5 mb-5">
-                    
-                    <div class="col-4 cart-row text-center">
-                        <h2>Produits sélectionnés</h2>
-                        <div id="productSelected">
-
-                        </div>
+                    <div class="col">
+                        <div id="productSelected"></div>             
                     </div>
-                    <div class ="col-4 cart-row  text-center">
-                        <h2>Prix</h2>
-                        <div id="price">
-
-                        </div>
-                    </div>
-                    <div class="col-4 cart-row  text-center">
-                        <h2>Quantité</h2>
-                        <div id="quantity">
-                            <input class="cart-quantity-input" type="number" value="1">
-                            <button type="button" class="btn btn-danger">Supprimer</button>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-danger">Supprimer</button>                
                 </div>          
             </div>
         </section>
@@ -90,8 +74,8 @@
                             </div>
             
                             <div class="form-group w-75">
-                                <label for="adresse">Numéro de voie et nom de rue</label>
-                                <textarea name="adresse" class="form-control"  id="adresse" required  placeholder="Ex : 78, rue Danton"></textarea>
+                                <label for="adress">Numéro de voie et nom de rue</label>
+                                <textarea class="form-control" name="adress" id="adress" required  placeholder="Ex : 78, rue Danton"></textarea>
                             </div>
             
                             <div class="form-group w-75">
@@ -100,8 +84,8 @@
                             </div>
             
                             <div class="form-group w-75">
-                                <label for="town">Ville</label>
-                                <input type="text" class="form-control"  name="town" id="town" pattern="[A-Za-z] [A-Za-z] {2,10}" required placeholder="Ex : Bordeaux" />
+                                <label for="city">Ville</label>
+                                <input type="text" class="form-control"  name="city" id="city" pattern="[A-Za-z] [A-Za-z] {2,10}" required placeholder="Ex : Bordeaux" />
                             </div>
                             
                             <div class="form-group w-75">
@@ -109,30 +93,7 @@
                                 <input type="text" class="form-control" name="country" id="country" pattern="[A-Za-z]{2,10}" required  placeholder="Ex : France" />
                             </div>
                         </fieldset>
-            
-                        <fieldset>
-                            <legend>Adresse de facturations</legend>
 
-                            <div class="form-group w-75">
-                                <label for="invoice_address">Numéro de voie et nom de rue</label>
-                                <textarea name="invoice_address" class="form-control" id="invoice_address" required placeholder="Ex : 78, rue Danton"></textarea>
-                            </div>
-
-                            <div class="form-group w-75">
-                                <label for="invoice_post_code">Code postal</label>
-                                <input type="text" name="invoice_post_code" class="form-control" id="invoice_post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
-                            </div>
-
-                            <div class="form-group w-75">
-                                <label for="invoice_town">Ville</label>
-                                <input type="text" name="invoice_town" class="form-control" id="invoice_town" pattern="[A-Za-z]{2,10}" required placeholder="Ex : Bordeaux" />
-                            </div>
-            
-                            <div class="form-group w-75">
-                                <label for="invoice_country">Pays</label>
-                                <input type="text" name="invoice_country" class="form-control" id="invoice_country" pattern="[A-Za-z]{2,10}" required placeholder="Ex : France" />
-                            </div>
-                        </fieldset>
             
                         <button type="submit" value="Envoyer">Envoyer</button>
                     </form>
