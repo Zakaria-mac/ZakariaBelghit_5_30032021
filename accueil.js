@@ -43,21 +43,21 @@ const displayListCameras = async () => {
 
         // Donne le rôle et la classe de chaque élément créé + mise en place Bootstrap
 
-        firstContainer.setAttribute('class','card-deck col-12 col-sm-6 col-md-4 my-3')
+        firstContainer.setAttribute("class","card-deck col-12 col-sm-6 col-md-4 my-3")
+        firstContainer.setAttribute("title", "Cliquez pour en savoir plus !")
 
-        camerasContainerElement.setAttribute('href', `details.html?id=${listCameras[i]._id}`)
-        camerasContainerElement.setAttribute('class', 'card')
+        camerasContainerElement.setAttribute("href", `details.html?id=${listCameras[i]._id}`)
+        camerasContainerElement.setAttribute("class", "card")
 
         camerasImage.setAttribute("src", listCameras[i].imageUrl)
-        camerasImage.setAttribute('class', 'card-img-top p-2')
-        camerasImage.setAttribute('alt', 'Image Appareils Photos')
-        camerasImage.setAttribute('title', 'Cliquez pour en savoir plus !')
-
-        containerCardBody.setAttribute('class', 'card-body')
+        camerasImage.setAttribute("class", "card-img-top p-2")
+        camerasImage.setAttribute("alt", "Image de l'appareil photo")
         
-        camerasName.setAttribute('class', 'card-title text-center')
+        containerCardBody.setAttribute("class", "card-body")
+        
+        camerasName.setAttribute("class", "card-title text-center")
 
-        camerasListDescription.setAttribute('class', 'card-text list-unstyled text-left')
+        camerasListDescription.setAttribute("class", "card-text list-unstyled text-left")
 
         // On applique sur HTML les éléments créé
         

@@ -4,6 +4,7 @@
 */
 
 // Récupération de l'iD, sans le "?"//
+
 const queryString_url_id = window.location.search;
 
 const urlSearchParams = new URLSearchParams(queryString_url_id)
@@ -19,18 +20,15 @@ const displayDetail = async () => {
     const idChosenProduct = await loadData() 
 
     const containerListDetail = document.getElementById('detail')
-    console.log(containerListDetail )
     
     const detailMainContainer = document.createElement("div")
     containerListDetail.appendChild(detailMainContainer)
     
     const detailName = document.createElement("h1")
-    detailMainContainer.appendChild(detailName)
+    detailMainContainer.appendChild(detailName) 
     
-    const detailImageContainer = document.createElement("div")
     const detailImageUrl = document.createElement("img")
-    detailMainContainer.appendChild(detailImageContainer)
-    detailImageContainer.appendChild(detailImageUrl)    
+    detailMainContainer.appendChild(detailImageUrl)    
     
     const detailDescription = document.createElement("p")
     detailMainContainer.appendChild(detailDescription)
@@ -45,11 +43,19 @@ const displayDetail = async () => {
     detailPrice.innerHTML = idChosenProduct.price/100 + " € "
 
      // Donne le rôle et la classe de chaque élément créé
-     containerListDetail.setAttribute("class", "card card-body col-12 text-left")
+
+     containerListDetail.setAttribute("class", "card containerListDetail")
+
+     detailMainContainer.setAttribute("class", "card-body d-flex flex-column text-left")
+
      detailName.setAttribute("class", "card-title text-center")
+
      detailImageUrl.setAttribute("src", idChosenProduct.imageUrl)
+     detailImageUrl.setAttribute("alt","Image de l'appareil photographique sélectionné")
      detailImageUrl.setAttribute("class", "card-img")
+
      detailDescription.setAttribute("class", "card-text mt-3")
+
      detailPrice.setAttribute("class", "card-text mb-3")
     
     //récupération id formulaire pour choix option + mise en place Bootstrap
@@ -59,9 +65,9 @@ const displayDetail = async () => {
     
     for (let i in selectionOption){
         const select = document.getElementById("select")
-        containerListDetail.appendChild(select)
+        detailMainContainer.appendChild(select)
 
-        select.setAttribute("class", "card-text w-25 cursor")
+        select.setAttribute("class", "card-text w-50 cursor")
 
         const detailObject = document.createElement("option")
         select.appendChild(detailObject)
@@ -71,20 +77,19 @@ const displayDetail = async () => {
     } 
     
     //vérification des values
+
     let checking = document.querySelector("select");
         checking.addEventListener("change", function(){
         console.log("value => "+this.value)
-    })
-    
-    
+    })    
     
     /* Envoi du produit au panier via localstorage : 
     - Récupération des données de la page détail
     */   
 
     const boutonEnvoi = document.querySelector("button")
-    containerListDetail.appendChild(boutonEnvoi)
-    boutonEnvoi.setAttribute("class", "card-link w-25 mt-2")
+    detailMainContainer.appendChild(boutonEnvoi)
+    boutonEnvoi.setAttribute("class", "card-link w-50 mt-2")
 
     boutonEnvoi.setAttribute("action", "panier.html")
     

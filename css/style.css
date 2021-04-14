@@ -9978,8 +9978,14 @@ body a:hover {
   border: 3px solid red;
 }
 
-.shoppingCartImg {
-  width: 25%;
+@media only screen and (min-width: 768px) {
+  .containerListDetail {
+    width: 50%;
+  }
+
+  .imageOfProduct {
+    width: 30%;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
