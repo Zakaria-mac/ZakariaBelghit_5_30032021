@@ -1,9 +1,7 @@
 // Récupérer le localStorage sur panier.js 
-
 const shoppingCart = async () => {
     return JSON.parse(localStorage.getItem('product'))
 }
-
 
 // Affichage du panier
 
@@ -46,7 +44,7 @@ const shoppingCartDisplay = async () => {
 
         optionOfProduct.setAttribute("class", "card-text d-flex justify-content-center  justify-content-md-start")
 
-        priceOfProduct.setAttribute("class", "card-text d-flex justify-content-center justify-content-md-end")
+        priceOfProduct.setAttribute("class", "priceOfProduct card-text d-flex justify-content-center justify-content-md-end")
     
         imageOfProduct.innerHTML = storage[i].image
         nameOfProduct.innerHTML = storage[i].name
@@ -57,7 +55,8 @@ const shoppingCartDisplay = async () => {
 
         const deleteProduct = document.createElement("button")
         firstContainerShoppingCard.appendChild(deleteProduct)
-        deleteProduct.setAttribute("class", "btn btn-danger")
+       
+        deleteProduct.setAttribute("class", "btn btn-secondary")
         deleteProduct.setAttribute("type", "button")
         deleteProduct.setAttribute("title", "Supprimer le produit de votre panier")
         
@@ -67,16 +66,33 @@ const shoppingCartDisplay = async () => {
             let buttonDeletedClicked = event.target 
             buttonDeletedClicked.parentElement.remove()
         })
-
-        // addition du bouton total des prix
-
-
-
-
-
     }
-       
-}
+}   
 shoppingCartDisplay()
+
+//création du bouton pour supprimer tout le panier
+const deleteAllProducts = document.querySelector(".principalContainer button.testmicro")
+
+deleteAllProducts.addEventListener('click', function(event){
+    let buttonDeletedAll = event.target
+    buttonDeletedAll.parentElement.parentElement.remove()
+    localStorage.removeItem('product')
+})
+
+deleteAllProducts.addEventListener('click', function(){
+   alert("Votre panier a bien été vidé")
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 

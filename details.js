@@ -90,7 +90,7 @@ const displayDetail = async () => {
 
     const boutonEnvoi = document.querySelector("button")
     detailMainContainer.appendChild(boutonEnvoi)
-    boutonEnvoi.setAttribute("class", "card-link w-50 mt-2")
+    boutonEnvoi.setAttribute("class", "card-link w-50 mt-2 buttonEnvoi")
 
     boutonEnvoi.setAttribute("action", "panier.html")
     

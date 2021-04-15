@@ -33,7 +33,7 @@ body a{
 .cursor{
     cursor: pointer;
 }
-.card-link{
+.buttonEnvoi, .validationButton {
     transform: scale(1);
     transition: transform 300ms;   
     &:hover{
