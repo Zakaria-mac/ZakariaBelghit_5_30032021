@@ -8,7 +8,6 @@ const shoppingCart = () => {
 
 const shoppingCartDisplay = async () => {
     const storage = shoppingCart()
-    const firstContainer = document.getElementById("firstContainer")
     const primaryContainer = document.getElementById("productSelected")
 
     for (let i in storage) {
@@ -99,8 +98,6 @@ const displayTotal = () => {
     const totalPriceArray = new Array()
 
     const totalPrice = document.getElementById("totalPrice")
-    firstContainer.appendChild(totalPrice)
-    console.log(storage)
     for (let m = 0; m < storage.length; m++) { 
         let totalPriceShoppingCart = storage[m].price
         totalPriceArray.push(totalPriceShoppingCart)
@@ -114,7 +111,7 @@ const displayTotal = () => {
 displayTotal()
 
 
-//création du bouton pour supprimer tout le panier
+//Création du bouton pour supprimer tout le panier
 
 const deleteAllProducts = document.querySelector(".principalContainer button.deleteShoppingCart")
 
@@ -129,7 +126,7 @@ deleteAllProducts.addEventListener('click', function () {
 })
 
 
-//envoi des datas à la page confirmation
+//Envoi des datas à la page confirmation
 
 const formResult = document.getElementById("formInfoRepository");
 
@@ -161,5 +158,5 @@ formResult.addEventListener("submit", async function (event) {
     const orderJson = await orderResponse.json()
     console.log(orderJson)
     localStorage.setItem("currentOrder", JSON.stringify(orderJson))
-    window.location("confirmation.html")
+    window.location.href = "confirmation.html" 
 })

@@ -102,7 +102,7 @@ const displayDetail = async () => {
             description : idChosenProduct.description,
             price : idChosenProduct.price/100,
             lenses : selectedOption,
-            _id : idChosenProduct.id
+            _id : idChosenProduct._id
         }
        
         localStorage.setItem("chosenProduct", JSON.stringify(chosenProduct))
