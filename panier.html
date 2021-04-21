@@ -38,11 +38,10 @@
             <div class="container">
                 <h1 class="text-center">Récapitulatif de votre commande</h1>
                 <div class="row mt-5 mb-5">
-                    <div class="col principalContainer">
-                        <div id="productSelected">
-                            
-                        </div>
-                        <button type="button" class="btn btn-danger testmicro">Videz votre panier</button>                                     
+                    <div id="firstContainer" class="col principalContainer">
+                        <div id="productSelected"></div>                        
+                        <button id = "buttonToDelete" type="button" class="btn btn-danger deleteShoppingCart">Videz votre panier</button>      
+                        <div id="totalPrice"></div>                               
                     </div>
                 </div>          
             </div>
@@ -51,52 +50,39 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <form>
+                    <form id="formInfoRepository">
                         <fieldset>
                             <legend>Vos coordonnées</legend>
                             
                             <div class="form-group w-75">
                                 <label for="lastName">Nom</label>
-                                <input type="text" class="form-control" name="lastName" id="lastName" pattern="[A-Za-z]{2,15}" autofocus required placeholder="Ex : Dupond" />
+                                <input type="text" class="form-control" name="lastName" id="lastName" pattern="[A-Za-z]{2,15}" autofocus placeholder="Ex : Dupond" />
                             </div>
             
                             <div class="form-group w-75">
                                 <label for="firstName">Prénom</label>
-                                <input type="text" class="form-control" name="firstName" id= "firstName"  pattern="[A-Za-z]{2,15}" required placeholder="Ex : Henri" />
+                                <input type="text" class="form-control" name="firstName" id= "firstName"  pattern="[A-Za-z]{2,15}"  placeholder="Ex : Henri" />
                             </div>
                         
                             <div class="form-group w-75">
-                                <label for="email">Adresse E-mail</label>
-                                <input type="email" class="form-control" name="email" id="email" required placeholder="exemple@domaine.com" />
-                            </div>
-            
-                            <div class="form-group w-75">
-                                <label for="phone_number">Téléphone</label>
-                                <input type="tel" class="form-control" name="phone_number" id="phone_number" pattern="[0-9]{10,12}" required placeholder="0000000000" />
-                            </div>
-            
-                            <div class="form-group w-75">
                                 <label for="adress">Numéro de voie et nom de rue</label>
-                                <textarea class="form-control" name="adress" id="adress" required  placeholder="Ex : 78, rue Danton"></textarea>
-                            </div>
-            
-                            <div class="form-group w-75">
-                                <label for="post_code">Code postal</label>
-                                <input type="text" class="form-control" name="post_code" id="post_code" pattern="[0-9]{5}" required placeholder="Ex : 33000" />
+                                <textarea class="form-control" name="address" id="address"  placeholder="Ex : 78, rue Danton"></textarea>
                             </div>
             
                             <div class="form-group w-75">
                                 <label for="city">Ville</label>
-                                <input type="text" class="form-control"  name="city" id="city" pattern="[A-Za-z] [A-Za-z] {2,10}" required placeholder="Ex : Bordeaux" />
+                                <input type="text" class="form-control"  name="city" id="city" placeholder="Ex : Bordeaux" />
+                            </div>
+
+                            <div class="form-group w-75">
+                                <label for="email">Adresse E-mail</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="exemple@domaine.com" />
                             </div>
                             
-                            <div class="form-group w-75">
-                                <label for="country">Pays</label>
-                                <input type="text" class="form-control" name="country" id="country" pattern="[A-Za-z]{2,10}" required  placeholder="Ex : France" />
-                            </div>
+                            
                         </fieldset>
 
-                        <button type="submit" class="validationButton btn-danger" value="Envoyer">Validez votre achat</button>
+                        <button type="submit" id="submitForm" class="validationButton btn-danger" value="Envoyer">Validez votre achat</button>
                     </form>
        
                 </div>

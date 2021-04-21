@@ -135,3 +135,64 @@ const shoppingCartDisplay = async () => {
     }
 }
 shoppingCartDisplay()
+
+
+deleteProduct.addEventListener('click', function(event){
+    let buttonDeletedClicked = event.target 
+    buttonDeletedClicked.parentElement.remove()
+})        
+
+const loadShoppingPrice = async () => {
+    return await shoppingCartDisplay() }
+
+    const totalPriceShoppingDisplay = async () => {
+        const pricesInShoppingCart = await loadShoppingPrice()
+        const totalPrice = document.getElementById("totalPrice")
+        const total = 0
+    
+        for (let i in pricesInShoppingCart){
+            const prixTotal = document.createElement('p')
+            totalPrice.appendChild(prixTotal)
+            
+            prixTotal.innerHTML = 
+           
+            prixTotal.innerHtml = total += parseInt(pricesInShoppingCart[i].priceOfProduct);
+    
+            return prixTotal          
+        }
+}
+function getTheTotalPrice(){
+
+    const totalPrice = document.getElementById("totalPrice")
+    firstContainer.appendChild(totalPrice)
+ 
+    let totalPriceShoppingCart = storage[i].price
+
+        const reducer = (accumulator, currentValue) => accumulator + currentValue
+        const total = totalPriceShoppingCart.reduce(reducer, 0)
+
+        const totalOfThePrices = document.createElement("strong")
+        totalPrice.appendChild(totalOfThePrices)
+        totalOfThePrices.innerHTML = " Total = " + total + " € "
+}
+getTheTotalPrice()        
+
+
+event.preventDefault()
+const formData = new FormData(this)
+
+const searchParams = new URLSearchParams()
+for (const pair of formData){
+    searchParams.append(pair[0], pair[1], pair[2], pair[3], pair[4], pair[5], pair[6], pair[7])
+}
+const storage = shoppingCart()
+
+fetch("http://localhost:3000/api/cameras/order", {
+    method: "post",
+    body: searchParams, storage
+}).then(function(response){
+    return response.json()
+}).catch(function(error){
+    console.log(error)
+})
+})

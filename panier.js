@@ -1,19 +1,21 @@
 // Récupérer le localStorage sur panier.js 
-const shoppingCart = async () => {
+const shoppingCart = () => {
     return JSON.parse(localStorage.getItem('product'))
 }
+
 
 // Affichage du panier
 
 const shoppingCartDisplay = async () => {
-    const storage = await shoppingCart()
+    const storage = shoppingCart()
+    const firstContainer = document.getElementById("firstContainer")
     const primaryContainer = document.getElementById("productSelected")
 
-    for (let i in storage){
+    for (let i in storage) {
 
         const firstContainerShoppingCard = document.createElement("div")
         primaryContainer.appendChild(firstContainerShoppingCard)
-        
+
         const imageOfProduct = document.createElement("img")
         firstContainerShoppingCard.appendChild(imageOfProduct)
 
@@ -29,10 +31,11 @@ const shoppingCartDisplay = async () => {
         const priceOfProduct = document.createElement("strong")
         containerOfProduct.appendChild(priceOfProduct)
 
-         // Donne le rôle et la classe de chaque élément créé
 
-        firstContainerShoppingCard.setAttribute("class", "card d-flex flex-md-row mb-4") 
-        firstContainerShoppingCard.setAttribute("title","Produit sélectionné")
+        // Donne le rôle et la classe de chaque élément créé
+
+        firstContainerShoppingCard.setAttribute("class", "card d-flex flex-md-row mb-4")
+        firstContainerShoppingCard.setAttribute("title", "Produit sélectionné")
 
         imageOfProduct.setAttribute("src", storage[i].image)
         imageOfProduct.setAttribute("class", "card-img-top d-flex imageOfProduct justify-content-md-start")
@@ -45,54 +48,118 @@ const shoppingCartDisplay = async () => {
         optionOfProduct.setAttribute("class", "card-text d-flex justify-content-center  justify-content-md-start")
 
         priceOfProduct.setAttribute("class", "priceOfProduct card-text d-flex justify-content-center justify-content-md-end")
-    
+
         imageOfProduct.innerHTML = storage[i].image
         nameOfProduct.innerHTML = storage[i].name
-        optionOfProduct.innerHTML = " Option : " +storage[i].lenses
-        priceOfProduct.innerHTML = storage[i].price
+        optionOfProduct.innerHTML = " Option : " + storage[i].lenses
+        priceOfProduct.innerHTML = storage[i].price + " € "
+
+
 
         // création du bouton pour supprimer un produit 
 
+        function removeItem(index) {
+            storage.splice(index, 1);
+
+            localStorage.setItem("product", JSON.stringify(storage))
+
+            if (storage.length === i) {
+                localStorage.removeItem('product');
+            }
+        }
+
         const deleteProduct = document.createElement("button")
         firstContainerShoppingCard.appendChild(deleteProduct)
-       
+
         deleteProduct.setAttribute("class", "btn btn-secondary")
         deleteProduct.setAttribute("type", "button")
         deleteProduct.setAttribute("title", "Supprimer le produit de votre panier")
-        
+
         deleteProduct.innerHTML = "Supprimer"
 
-        deleteProduct.addEventListener('click', function(event){
-            let buttonDeletedClicked = event.target 
+        deleteProduct.addEventListener('click', function (event) {
+
+            removeItem()
+            let buttonDeletedClicked = event.target
             buttonDeletedClicked.parentElement.remove()
-        })
+            document.location.reload()
+        }
+        )
     }
-}   
+}
 shoppingCartDisplay()
 
-//création du bouton pour supprimer tout le panier
-const deleteAllProducts = document.querySelector(".principalContainer button.testmicro")
 
-deleteAllProducts.addEventListener('click', function(event){
+//création du total des couts 
+
+const reducer = (accumulator, currentValue) => accumulator + currentValue
+const displayTotal = () => {
+
+    const storage = shoppingCart()
+    const totalPriceArray = new Array()
+
+    const totalPrice = document.getElementById("totalPrice")
+    firstContainer.appendChild(totalPrice)
+    console.log(storage)
+    for (let m = 0; m < storage.length; m++) { 
+        let totalPriceShoppingCart = storage[m].price
+        totalPriceArray.push(totalPriceShoppingCart)
+    }
+    const total = totalPriceArray.reduce(reducer, 0)
+
+        const totalOfThePrices = document.createElement("strong")
+        totalPrice.appendChild(totalOfThePrices)
+        totalOfThePrices.innerHTML = " Total = " + total + " € "
+}
+displayTotal()
+
+
+//création du bouton pour supprimer tout le panier
+
+const deleteAllProducts = document.querySelector(".principalContainer button.deleteShoppingCart")
+
+deleteAllProducts.addEventListener('click', function (event) {
     let buttonDeletedAll = event.target
     buttonDeletedAll.parentElement.parentElement.remove()
     localStorage.removeItem('product')
 })
 
-deleteAllProducts.addEventListener('click', function(){
-   alert("Votre panier a bien été vidé")
+deleteAllProducts.addEventListener('click', function () {
+    alert("Votre panier a bien été vidé")
 })
 
 
+//envoi des datas à la page confirmation
 
+const formResult = document.getElementById("formInfoRepository");
 
+formResult.addEventListener("submit", async function (event) {
 
+    event.preventDefault()
 
+    console.log(event.target.lastName.value)
+    
+    const contact = {
+        lastName : event.target.lastName.value,
+        firstName : event.target.firstName.value,
+        address : event.target.address.value,
+        city : event.target.address.value,
+        email : event.target.email.value
+    }
 
+    const products = shoppingCart().map((item) => item._id)
+    console.log(products)
 
-
-
-
-
-
-
+    const orderResponse = await fetch("http://localhost:3000/api/cameras/order", {
+        method: "POST",
+        body: JSON.stringify({contact, products}),
+        headers: new Headers({
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        })
+    })
+    const orderJson = await orderResponse.json()
+    console.log(orderJson)
+    localStorage.setItem("currentOrder", JSON.stringify(orderJson))
+    window.location("confirmation.html")
+})
