@@ -159,4 +159,5 @@ formResult.addEventListener("submit", async function (event) {
     console.log(orderJson)
     localStorage.setItem("currentOrder", JSON.stringify(orderJson))
     window.location.href = "confirmation.html" 
+    localStorage.removeItem('product')
 })
