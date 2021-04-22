@@ -1,10 +1,6 @@
 // Récupération des données envoyés à l'API depuis le panier
-
 const loadDataconfirmationOrder = () => {
     return JSON.parse(localStorage.getItem('currentOrder'))
-}
-const total = () => {
-    return displayTotal()
 }
 
 // Création de la fonction qui fera apparaitre le numéro de commande et le prix total
@@ -34,3 +30,36 @@ const confirmationDisplay = () => {
     numOfOrder.innerHTML = " Numéro de votre commande : " + confirmationStored.orderId
 }
 confirmationDisplay()
+
+
+// Afficher le total du produit
+
+const displayTotalPrice = () => {
+
+    const storage = loadDataconfirmationOrder()
+    const getThePrice = storage.products
+    const confirmationPrincipalContainer = document.getElementById("containerConfirmation") 
+
+    const totalPriceArray = new Array()
+    console.log(totalPriceArray)
+
+    const totalPrice = document.createElement("div")
+    confirmationPrincipalContainer.appendChild(totalPrice)
+    totalPrice.setAttribute("class","card-text text-center mb-4")
+
+    for (let i = 0; i < getThePrice.length; i++){
+        priceOfProduct = getThePrice[i].price
+        totalPriceArray.push(priceOfProduct)
+    }
+
+    const total = totalPriceArray.reduce(
+        (accumulateur, currentValue) => accumulateur + currentValue);
+      
+    console.log(total)
+
+        const totalOfThePrices = document.createElement("strong")
+        totalPrice.appendChild(totalOfThePrices)
+        totalOfThePrices.innerHTML = " Total = " + total/100 + " € "
+}
+displayTotalPrice()
+

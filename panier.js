@@ -70,7 +70,7 @@ const displayTotal = () => {
         totalPriceArray.push(totalPriceShoppingCart)
     }
     const total = totalPriceArray.reduce(reducer, 0)
-
+    
         const totalOfThePrices = document.createElement("strong")
         totalPrice.appendChild(totalOfThePrices)
         totalOfThePrices.innerHTML = " Total = " + total + " € "
