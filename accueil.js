@@ -1,14 +1,11 @@
 
-/*
-const loadMockData = () => {
-    return mockDataCamera
-}
-*/
+//Récupérer les données de l'API via Fetch 
+
 const loadMockData = async () => {
     return await (await fetch("http://localhost:3000/api/cameras/")).json()
 }
 
-//Affichage dans le HTML de la fonction retournant les objets
+//Affichage dans le HTML de la fonction retournant les objets provenant de l'APIs
 const displayListCameras = async () => {
     const listCameras = await loadMockData()
     const listContainer = document.getElementById('container')

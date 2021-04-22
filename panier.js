@@ -3,7 +3,6 @@ const shoppingCart = () => {
     return JSON.parse(localStorage.getItem('product'))
 }
 
-
 // Affichage du panier
 
 const shoppingCartDisplay = async () => {
@@ -52,38 +51,6 @@ const shoppingCartDisplay = async () => {
         nameOfProduct.innerHTML = storage[i].name
         optionOfProduct.innerHTML = " Option : " + storage[i].lenses
         priceOfProduct.innerHTML = storage[i].price + " € "
-
-
-
-        // création du bouton pour supprimer un produit 
-
-        function removeItem(index) {
-            storage.splice(index, 1);
-
-            localStorage.setItem("product", JSON.stringify(storage))
-
-            if (storage.length === i) {
-                localStorage.removeItem('product');
-            }
-        }
-
-        const deleteProduct = document.createElement("button")
-        firstContainerShoppingCard.appendChild(deleteProduct)
-
-        deleteProduct.setAttribute("class", "btn btn-secondary")
-        deleteProduct.setAttribute("type", "button")
-        deleteProduct.setAttribute("title", "Supprimer le produit de votre panier")
-
-        deleteProduct.innerHTML = "Supprimer"
-
-        deleteProduct.addEventListener('click', function (event) {
-
-            removeItem()
-            let buttonDeletedClicked = event.target
-            buttonDeletedClicked.parentElement.remove()
-            document.location.reload()
-        }
-        )
     }
 }
 shoppingCartDisplay()
@@ -145,7 +112,6 @@ formResult.addEventListener("submit", async function (event) {
     }
 
     const products = shoppingCart().map((item) => item._id)
-    console.log(products)
 
     const orderResponse = await fetch("http://localhost:3000/api/cameras/order", {
         method: "POST",

@@ -62,7 +62,6 @@ const displayDetail = async () => {
     //récupération id formulaire pour choix option + mise en place Bootstrap
     
     const selectionOption = idChosenProduct.lenses
-    console.log(selectionOption)
     
     for (let i in selectionOption){
         const select = document.getElementById("select")

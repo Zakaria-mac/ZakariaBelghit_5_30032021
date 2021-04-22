@@ -3,6 +3,9 @@
 const loadDataconfirmationOrder = () => {
     return JSON.parse(localStorage.getItem('currentOrder'))
 }
+const total = () => {
+    return displayTotal()
+}
 
 // Création de la fonction qui fera apparaitre le numéro de commande et le prix total
 const confirmationDisplay = () => {
@@ -15,7 +18,7 @@ const confirmationDisplay = () => {
     const confirmationTitle = document.createElement("h2")
     confirmationPrincipalContainer.appendChild(confirmationTitle)
 
-    numOfOrder = document.createElement("strong")
+    const numOfOrder = document.createElement("strong")
     confirmationPrincipalContainer.appendChild(numOfOrder)
 
     // Assignation des rôles des balises créées
