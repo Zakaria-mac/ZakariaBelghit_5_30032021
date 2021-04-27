@@ -1,4 +1,5 @@
 // Récupérer le localStorage sur panier.js 
+
 const shoppingCart = () => {
     return JSON.parse(localStorage.getItem('product'))
 }
@@ -101,8 +102,6 @@ const formResult = document.getElementById("formInfoRepository");
 formResult.addEventListener("submit", async function (event) {
 
     event.preventDefault()
-
-    console.log(event.target.lastName.value)
     
     const contact = {
         lastName : event.target.lastName.value,
@@ -123,7 +122,7 @@ formResult.addEventListener("submit", async function (event) {
         })
     })
     const orderJson = await orderResponse.json()
-    console.log(orderJson)
+  
     localStorage.setItem("currentOrder", JSON.stringify(orderJson))
     window.location.href = "confirmation.html" 
     localStorage.removeItem('product')

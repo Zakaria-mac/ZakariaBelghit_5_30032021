@@ -6,6 +6,7 @@ const loadMockData = async () => {
 }
 
 //Affichage dans le HTML de la fonction retournant les objets provenant de l'APIs
+
 const displayListCameras = async () => {
     const listCameras = await loadMockData()
     const listContainer = document.getElementById('container')

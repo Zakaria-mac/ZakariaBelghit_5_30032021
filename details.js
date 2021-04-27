@@ -11,11 +11,19 @@ const urlSearchParams = new URLSearchParams(queryString_url_id)
 
 const id = urlSearchParams.get("id")
 
+
+//Récupérer les données de l'API via Fetch en prenant en compte l'id
+
 const loadData = async () => {
     return await (await fetch("http://localhost:3000/api/cameras/" + id)).json()
 }
 
+
+//Affichage dans le HTML de la fonction retournant les objets provenant de l'APIs
+
 const displayDetail = async () => {
+
+    // Création des éléments qui vont recuillir les data de l'API
 
     const idChosenProduct = await loadData() 
 
