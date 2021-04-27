@@ -73,6 +73,7 @@ const displayTotal = () => {
     
         const totalOfThePrices = document.createElement("strong")
         totalPrice.appendChild(totalOfThePrices)
+        totalPrice.setAttribute("class", "d-flex justify-content-end ")
         totalOfThePrices.innerHTML = " Total = " + total + " € "
 }
 displayTotal()
